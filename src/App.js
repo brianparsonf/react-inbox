@@ -105,6 +105,7 @@ class App extends React.Component {
 
     countSelectedMessages = () => this.state.messages.reduce((sum, m) => (m.isSelected) ? sum+1 : sum, 0);
 
+
     render() {
         console.log(this.state.messages);
         return (

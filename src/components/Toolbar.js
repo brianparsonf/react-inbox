@@ -36,6 +36,8 @@ class Toolbar extends React.Component {
         this.props.removeLabelFromSelected(e.target.value);
     }
 
+    anySelected = () => this.props.selectedCount > 0;
+
     render() {
         console.log(this.props);
         return (
@@ -59,19 +61,19 @@ class Toolbar extends React.Component {
                         `}></i>
                     </button>
     
-                    <button className="btn btn-default"
+                    <button className="btn btn-default" disabled={!this.anySelected()}
                         onClick={this.markAsRead}
                     >
                         Mark As Read
                     </button>
     
-                    <button className="btn btn-default"
+                    <button className="btn btn-default" disabled={!this.anySelected()}
                         onClick={this.markAsUnread}
                     >
                         Mark As Unread
                     </button>
     
-                    <select className="form-control label-select"
+                    <select className="form-control label-select" disabled={!this.anySelected()}
                         value="__DEFAULT__"
                         onChange={this.changedAddLabel}
                     >
@@ -81,7 +83,7 @@ class Toolbar extends React.Component {
                         <option value="gschool">gschool</option>
                     </select>
     
-                    <select className="form-control label-select"
+                    <select className="form-control label-select" disabled={!this.anySelected()}
                         value="__DEFAULT__"
                         onChange={this.changedRemoveLabel}
                     >
@@ -91,7 +93,7 @@ class Toolbar extends React.Component {
                         <option value="gschool">gschool</option>
                     </select>
     
-                    <button className="btn btn-default"
+                    <button className="btn btn-default" disabled={!this.anySelected()}
                         onClick={this.deleteSelected}
                     >
                         <i className="fa fa-trash-o"></i>
